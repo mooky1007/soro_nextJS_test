@@ -31,13 +31,15 @@ next js 사용 개요 : 기존 react로 제작된 프로젝트들의 SEO 설정 
     - 이부분은 리액트랑 다르게 확인되는데, next start의 경우 프로덕션 서버를 실행하는데 사용된다고 합니다.  
     [참고링크 : next dev, build, start의 차이](https://maybe-b50.tistory.com/79)
 1. pages 폴더의 역할
-    - 자동 증산 및 번들링(웹팩 및 바벨 포함)
-    - 핫 코드 다시 로드
-    - ./pages/의 서버 렌더링 및 인덱싱
-    - 정적 파일 serving ./public/이 /에 매핑됩니다(프로젝트 내에 ./public/ 디렉토리를 생성하면).  
+    - 기본적으로 라우팅 기능을 한다고 보면 될것 같고.. 대문자 폴더나 파일이 들어있을 경우  
+    자동으로 해당 경로가 라우팅 됨. 별개로 api 폴더 내부에는 각각 api를 선언하여 사용 할 수 있고  
+    이경우엔 /api/파일명 으로 요청하고 export default로 handler 선언 해주면 api 사용이 가능할듯.  
+    [참고링크 : [NEXT.js] 넥스트 JS를 배워보자 4편 - API](https://mingeesuh.tistory.com/entry/NEXTjs-%EB%84%A5%EC%8A%A4%ED%8A%B8-JS%EB%A5%BC-%EB%B0%B0%EC%9B%8C%EB%B3%B4%EC%9E%90-4%ED%8E%B8-API-Routes)
 2. /pages/index.js 내부의 `<Head>`태그는 선언이 되어 있지 않고 `/next/head`로 임포트 되고 있는데,  
-    - 뭔가 자동으로 생성되는듯?.. 시간날때 한번 알아봐야 할것 같음..  
-    아마.. DOM 적인 요소는 아니고 SEO 관련 meta에 관여하는듯  
+    - next내 기능중 하나로 /next/head로 임포트 후 사용시 내부의 title, meta 등이 페이지 타이틀로  
+    렌더링됨, Header 에서 사용 시 전체적인 사이트의 기본 SEO 설정을 지정 할 수 있고 이후
+    각 페이지별 별도의 SEO설정이 필요할 경우 페이지 내부에 `<Head>`로 선언할 경우
+    후에 들어간 설정이 적용 되니 참고.
     [참고링크1 : NEXT HEAD에 대하여](https://velog.io/@cyranocoding/NEXT-HEAD-%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC)  
     [참고링크2 : next Vacel - API Ref 정리 페이지](https://nextjs.org/docs/api-reference/next/head)
 3. _app.js와 _document.js라는 개념이 있는데 한번 알아봐야 할듯
