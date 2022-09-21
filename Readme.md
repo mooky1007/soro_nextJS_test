@@ -39,7 +39,7 @@ next js 사용 개요 : 기존 react로 제작된 프로젝트들의 SEO 설정 
     - next내 기능중 하나로 /next/head로 임포트 후 사용시 내부의 title, meta 등이 페이지 타이틀로  
     렌더링됨, Header 에서 사용 시 전체적인 사이트의 기본 SEO 설정을 지정 할 수 있고 이후
     각 페이지별 별도의 SEO설정이 필요할 경우 페이지 내부에 `<Head>`로 선언할 경우
-    후에 들어간 설정이 적용 되니 참고.
+    후에 들어간 설정이 적용 되니 참고.  
     [참고링크1 : NEXT HEAD에 대하여](https://velog.io/@cyranocoding/NEXT-HEAD-%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC)  
     [참고링크2 : next Vacel - API Ref 정리 페이지](https://nextjs.org/docs/api-reference/next/head)
 3. _app.js와 _document.js라는 개념이 있는데 한번 알아봐야 할듯
