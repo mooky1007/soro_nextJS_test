@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
 const Page01 = () => {
     const [userNames, setUserNames] = useState();
+    const request = useRef();
 
     useEffect(()=>{
         getUserData();
     },[])
 
     const getUserData = () => {
-        axios.get(`/api/getUserData`).then(result => {
-            setUserNames(result.data)
+        request.current = axios.CancelToken.source();
+        axios.get(`/api/getUserData`, {cancelToken: request.current.token}).then(result => {
+            setUserNames(result.data);
         })
     }
 
     return (
         <div className="col-10">
             <h1>Page01</h1>
-            <p>Api Test, 1초 기다렸다가 오는 경우...</p>
+            <p>Api Test, {`${userNames ? `데이터 로드 완료` :  `데이터 요청중...`}`}</p>
             <hr />
             {
                 userNames
@@ -45,20 +47,25 @@ const Page01 = () => {
                                     })
                                 :
                                     <tr>
-                                        <td class="text-center pt-4 pb-4" colSpan={3}>No Data</td>
+                                        <td className="text-center pt-4 pb-4" colSpan={3}>No Data</td>
                                     </tr>
                             }
                         </tbody>
                     </table>
                 :
                     <div className="d-flex justify-content-center pt-4 pb-4">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
             }
-            <button type="button" className="btn btn-primary me-2" onClick={()=>{setUserNames(); getUserData()}}>데이터 요청</button>
-            <button type="button" className="btn btn-secondary" onClick={()=>{setUserNames([])}}>데이터 삭제</button>
+            <button type="button" className="btn btn-primary me-2" onClick={()=>{
+                request.current.cancel(); 
+                setUserNames();
+                getUserData()
+            }}
+            >데이터 요청</button>
+            <button type="button" className="btn btn-secondary" onClick={()=>{request.current.cancel(); setUserNames([])}}>데이터 삭제</button>
         </div>
     );
 };
