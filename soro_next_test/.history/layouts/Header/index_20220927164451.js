@@ -16,19 +16,17 @@ const Header = () => {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link href="/Page01" passHref>
-
-                                    {/* a href 사용하면 페이지 전체 새로고침 발생  참고 : https://nextjs.org/docs/messages/no-html-link-for-pages */}
-                                    <a className="nav-link active" aria-current="page">Page01</a>
+                                    <a href="/Page01" className="nav-link active" aria-current="page">Page01</a>
                                 </Link>
                             </li>
                             <li className="nav-item">
                             <Link href="/Page02" passHref>
-                                <a  className="nav-link active" aria-current="page">Page02</a>
+                                <a href="/Page02" className="nav-link active" aria-current="page">Page02</a>
                             </Link>
                             </li>
                             <li className="nav-item">
                             <Link href="/Page03" passHref>
-                                <a  className="nav-link active" aria-current="page">Page03</a>
+                                <a href="/Page03" className="nav-link active" aria-current="page">Page03</a>
                             </Link>
                             </li>
                         </ul>

@@ -50,6 +50,12 @@ next js 사용 개요 : 기존 react로 제작된 프로젝트들의 SEO 설정 
     [참고링크 : [Next.js] 파일 기반 라우팅](https://hyemgu.tistory.com/253)
 5. pages 폴더 내에 aboutUs 로 폴더를 만들고 내부에 index.js를 만들었을때 라우팅이 제대로 되지 않았다.
     - 기존 react 컴포넌트와 마찬가지로 폴더명이 대문자여야만 인식하는듯.
+
+6. pages/posts/[id].js 이라고 사용 하면 동적으로 결로 페이지를 생성 할 수 있다 
+    - http://localhost:3000/Test/아무이름이나 적어도 [id] 파일이 불러진다
+    [참고링크 : https://velog.io/@seungjae2668/Next.js-%EA%B3%B5%EC%8B%9D-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-step-6]
+
+    
 - - -
 
 ### 폴더구조

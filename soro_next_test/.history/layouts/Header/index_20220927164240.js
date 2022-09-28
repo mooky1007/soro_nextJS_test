@@ -16,8 +16,6 @@ const Header = () => {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link href="/Page01" passHref>
-
-                                    {/* a href 사용하면 페이지 전체 새로고침 발생  참고 : https://nextjs.org/docs/messages/no-html-link-for-pages */}
                                     <a className="nav-link active" aria-current="page">Page01</a>
                                 </Link>
                             </li>
