@@ -16,6 +16,17 @@ const Page01 = () => {
         })
     }
 
+    const callData = () => {
+        request.current.cancel(); 
+        setUserNames();
+        getUserData()
+    }
+
+    const deleteData = () => {
+        request.current.cancel(); 
+        setUserNames([])
+    }
+
     return (
         <div className="col-10">
             <h1>Page01</h1>
@@ -59,13 +70,8 @@ const Page01 = () => {
                         </div>
                     </div>
             }
-            <button type="button" className="btn btn-primary me-2" onClick={()=>{
-                request.current.cancel(); 
-                setUserNames();
-                getUserData()
-            }}
-            >데이터 요청</button>
-            <button type="button" className="btn btn-secondary" onClick={()=>{request.current.cancel(); setUserNames([])}}>데이터 삭제</button>
+            <button type="button" className="btn btn-primary me-2" onClick={()=>{callData()}}>데이터 요청</button>
+            <button type="button" className="btn btn-secondary" onClick={()=>{deleteData()}}>데이터 삭제</button>
         </div>
     );
 };
